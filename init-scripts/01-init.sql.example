@@ -1,0 +1,44 @@
+-- Example initialization script for PostgreSQL
+-- Place your .sql files in this directory to run them on first container startup
+-- Files are executed in alphabetical order
+
+-- Create extensions
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+CREATE EXTENSION IF NOT EXISTS "pg_trgm";
+CREATE EXTENSION IF NOT EXISTS "pg_stat_statements";
+
+-- Example: Create a custom database
+-- CREATE DATABASE myapp_dev;
+
+-- Example: Create a read-only user
+-- CREATE USER readonly WITH PASSWORD 'readonly_password';
+-- GRANT CONNECT ON DATABASE myapp TO readonly;
+-- GRANT USAGE ON SCHEMA public TO readonly;
+-- GRANT SELECT ON ALL TABLES IN SCHEMA public TO readonly;
+-- ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO readonly;
+
+-- Example: Create application tables
+-- CREATE TABLE IF NOT EXISTS users (
+--     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+--     email VARCHAR(255) UNIQUE NOT NULL,
+--     username VARCHAR(50) UNIQUE NOT NULL,
+--     password_hash VARCHAR(255) NOT NULL,
+--     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+--     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+-- );
+
+-- CREATE TABLE IF NOT EXISTS sessions (
+--     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+--     user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+--     token VARCHAR(255) UNIQUE NOT NULL,
+--     expires_at TIMESTAMP WITH TIME ZONE NOT NULL,
+--     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+-- );
+
+-- Create indexes
+-- CREATE INDEX idx_users_email ON users(email);
+-- CREATE INDEX idx_users_username ON users(username);
+-- CREATE INDEX idx_sessions_token ON sessions(token);
+-- CREATE INDEX idx_sessions_user_id ON sessions(user_id);
+-- CREATE INDEX idx_sessions_expires_at ON sessions(expires_at);

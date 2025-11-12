@@ -1,0 +1,35 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+LICENSE
+
+# Environment
+.env
+.env.*
+
+# Data directories
+data/
+
+# Backups
+*.sql
+*.sql.gz
+*.dump
+*.rdb
+*.aof
+backup/
+backups/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+logs/
