@@ -3,6 +3,9 @@
 .env.local
 .env.*.local
 
+# RabbitMQ definitions (contains environment-specific config)
+rabbitmq/definitions.json
+
 # Docker volumes are managed by Docker, no local data folders
 
 # Backup files
